@@ -5,15 +5,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     tools:context=".activities.MainActivity">
 
     <fragment
         android:id="@+id/fragmentCorreo"
         android:name="com.garcia.adrian.mailapp.fragments.FragmentCorreo"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
         android:layout_weight="1"/>
 
+    <fragment
+        android:id="@+id/fragmentContenido"
+        android:name="com.garcia.adrian.mailapp.fragments.FragmentContenido"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        />
 
 </LinearLayout>

@@ -8,7 +8,9 @@
         android:width="1dp"
         android:color="@color/common_border_color" />
 
-    <solid android:color="#0800ff" />
+    <solid
+        android:id="@+id/stroke"
+        android:color="#0800ff" />
 
     <padding
         android:left="1dp"

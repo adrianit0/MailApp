@@ -4,4 +4,17 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="common_border_color">#fff</color>
+
+    // Posibles colores para los circulos.
+    <color name="color_random0">#730404</color>
+    <color name="color_random1">#ff0000</color>
+    <color name="color_random2">#f2621a</color>
+    <color name="color_random3">#ffe41b</color>
+    <color name="color_random4">#94ff29</color>
+    <color name="color_random5">#1cffac</color>
+    <color name="color_random6">#219bf9</color>
+    <color name="color_random7">#1818fd</color>
+    <color name="color_random8">#670597</color>
+    <color name="color_random9">#9c223b</color>
+
 </resources>

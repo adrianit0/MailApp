@@ -11,12 +11,11 @@ public class Correo {
     private final int CARACTERES_CUERPO_RESUMEN = 60;
     private final int CARACTERES_TITULO_RESUMEN = 30;
 
-    public Correo (String sujeto, String titulo, String cuerpo) {
+    public Correo (String sujeto, String titulo, String cuerpo, int color) {
         this.sujeto = sujeto;
         this.titulo = titulo;
         this.cuerpo = cuerpo;
-
-        ////TODO: Incluir color aleatorio
+        this.color = color;
     }
 
     public String getSujeto() {

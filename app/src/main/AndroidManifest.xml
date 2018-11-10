@@ -16,6 +16,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".activities.CuerpoActivity"
+            android:label="Correo"
+            android:parentActivityName=".activities.MainActivity"/>
     </application>
 
 </manifest>
