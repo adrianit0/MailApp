@@ -56,7 +56,7 @@ public class Correo {
             return "";
         }
 
-        return sujeto.charAt(0)+"";
+        return sujeto.toUpperCase().charAt(0)+"";
     }
 
     public String getTituloResumen () {

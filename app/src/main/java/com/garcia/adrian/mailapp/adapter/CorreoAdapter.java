@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.garcia.adrian.mailapp.R;
@@ -47,6 +48,12 @@ public class CorreoAdapter extends RecyclerView.Adapter<CorreoAdapter.ViewHolder
 
         ////TODO: Incluir color de los circulitos
 
+        viewHolder.linear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                listener.onItemClick(correo, i);
+            }
+        });
     }
 
     @Override
@@ -56,6 +63,7 @@ public class CorreoAdapter extends RecyclerView.Adapter<CorreoAdapter.ViewHolder
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
+        LinearLayout linear;
         TextView textViewCaracter;
         TextView textViewTitulo;
         TextView textViewCuerpo;
@@ -67,7 +75,11 @@ public class CorreoAdapter extends RecyclerView.Adapter<CorreoAdapter.ViewHolder
             textViewCaracter= itemView.findViewById(R.id.textFieldCaracter);
             textViewTitulo= itemView.findViewById(R.id.textViewTitulo);
             textViewCuerpo= itemView.findViewById(R.id.textViewCuerpo);
+
+            linear = itemView.findViewById(R.id.id_correo);
         }
+
+
     }
 
     public interface OnItemClickListener{
