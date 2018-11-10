@@ -1,21 +1,16 @@
 package com.garcia.adrian.mailapp.fragments;
 
 
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.ShapeDrawable;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.garcia.adrian.mailapp.R;
-import com.garcia.adrian.mailapp.activities.MainActivity;
 import com.garcia.adrian.mailapp.model.Correo;
 
 /**
@@ -28,6 +23,8 @@ public class FragmentContenido extends Fragment {
     private TextView textoFrom;
     private TextView textoCuerpo;
 
+    private OnMailSent callback;
+
     public FragmentContenido() {
         // Required empty public constructor
     }
@@ -38,12 +35,11 @@ public class FragmentContenido extends Fragment {
 
         linear = view.findViewById(R.id.fragmentContenidoTodo);
         textoTitulo = view.findViewById(R.id.fragmentTitulo);
-
         textoFrom = view.findViewById(R.id.fragmentFrom);
         textoCuerpo = view.findViewById(R.id.fragmentContenido);
 
-        Log.e("INFO_SOBRE_FRAGMENT", "HA ENTRADO");
-        Log.e("INFO_SOBRE_FRAGMENT", textoCuerpo.getText().toString());
+        if (callback!=null)
+            callback.onChange();
 
         return view;
     }
@@ -53,12 +49,33 @@ public class FragmentContenido extends Fragment {
         textoTitulo.setText(correo.getTitulo());
         textoFrom.setText(correo.getSujeto());
         textoCuerpo.setText(correo.getCuerpo());
+
+
     }
 
     public void onCorreoChange (String titulo, String sujeto, String cuerpo) {
-        //linear.setVisibility(View.VISIBLE);
+        // Si no existe el contenido, no hay necesidad de mostrarlo por pantalla.
+        if (linear==null)
+            return;
+
+        linear.setVisibility(View.VISIBLE);
         textoTitulo.setText(titulo);
         textoFrom.setText(sujeto);
         textoCuerpo.setText(cuerpo);
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+
+        try {
+            callback = (OnMailSent) context;
+        }catch (ClassCastException e){
+            System.out.println("Error: deberia implementar la interfaz");
+        }
+    }
+
+    public interface OnMailSent {
+        void onChange ();
     }
 }

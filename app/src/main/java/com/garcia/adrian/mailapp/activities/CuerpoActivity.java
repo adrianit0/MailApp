@@ -1,13 +1,19 @@
 package com.garcia.adrian.mailapp.activities;
 
+import android.content.Context;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
 import com.garcia.adrian.mailapp.R;
 import com.garcia.adrian.mailapp.fragments.FragmentContenido;
+import com.garcia.adrian.mailapp.fragments.FragmentCorreo;
+import com.garcia.adrian.mailapp.model.Correo;
 
-public class CuerpoActivity extends AppCompatActivity {
+public class CuerpoActivity extends AppCompatActivity implements FragmentContenido.OnMailSent {
+
+    FragmentContenido contenido;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,21 +22,20 @@ public class CuerpoActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-
         ////TODO: Hacer que funcione el maldito fragment aquí...
 
-        FragmentContenido contenido = new FragmentContenido();
+        contenido = new FragmentContenido();
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.container, contenido).commit();
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction().replace(R.id.container, contenido).commit();
+    }
 
-        Log.e("INFO_A_POSTERIORI", "Funciona??");
-
-        /*if (contenido!=null)
-            contenido.onCorreoChange(
-                    getIntent().getStringExtra("MAIL_TITULO"),
-                    getIntent().getStringExtra("MAIL_FROM"),
-                    getIntent().getStringExtra("MAIL_CUERPO")
-            );*/
-
+    @Override
+    public void onChange () {
+        contenido.onCorreoChange(
+                getIntent().getStringExtra("MAIL_TITULO"),
+                getIntent().getStringExtra("MAIL_FROM"),
+                getIntent().getStringExtra("MAIL_CUERPO")
+        );
     }
 }

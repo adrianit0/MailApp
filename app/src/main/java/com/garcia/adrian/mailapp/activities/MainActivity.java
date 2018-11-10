@@ -1,5 +1,6 @@
 package com.garcia.adrian.mailapp.activities;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,7 +12,7 @@ import com.garcia.adrian.mailapp.fragments.FragmentCorreo;
 import com.garcia.adrian.mailapp.model.Correo;
 
 
-public class MainActivity extends AppCompatActivity implements FragmentCorreo.OnNameSent{
+public class MainActivity extends AppCompatActivity implements FragmentCorreo.OnMailSent{
 
 
     @Override
@@ -41,4 +42,5 @@ public class MainActivity extends AppCompatActivity implements FragmentCorreo.On
             startActivity(intent);
         }
     }
+
 }

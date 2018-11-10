@@ -32,7 +32,7 @@ public class FragmentCorreo extends Fragment {
     private CorreoAdapter adapter;
     private List<Correo> correos;
     private List<Integer> colores;
-    private OnNameSent callback;
+    private OnMailSent callback;
 
     public FragmentCorreo() {
         // Required empty public constructor
@@ -71,7 +71,7 @@ public class FragmentCorreo extends Fragment {
         super.onAttach(context);
 
         try {
-            callback = (OnNameSent) context;
+            callback = (OnMailSent) context;
         }catch (ClassCastException e){
             System.out.println("Error: deberia implementar la interfaz");
         }
@@ -82,12 +82,12 @@ public class FragmentCorreo extends Fragment {
                 new Correo ("admin@mailapp.com", "Bienvenidos a MailApp", "Si estas leyendo esto es que la aplicación está funcionando correctamente", getRandomColor()),
                 new Correo ("rrhh@miempresa.com", "Oferta de empleo", "Mi empresa SL ha visto su Curriculum Vitae y desea tener una entrevista de trabajo con usted para el día 25/11/18. Deseamos tenerte en nuestra plantilla de trabajo.", getRandomColor()),
                 new Correo ("jefatura@iesfernandoaguilar.com", "Tienes un apercibimiento", "Tu conducta no está siendo la más correcta, por lo que has sido sancionado.", getRandomColor()),
-                new Correo ("nicolas@mailapp.com", "Nicolas Corchero Montero en vivo!", "Has comprado una entrada para ver a Nicolas Corchero Montero el día 16 de Diciembre.", getRandomColor()),
-                new Correo ("mara@iesfernandoaguilar.com", "Aprobados en Acceso a datos", "La siguiente lista muestra todos los aprobados en el primer examen de AD, cualquier alumno que no aparezca significa que está suspenso:\n\nPuedes venir durante la tutoría para ver el examen y responder a dudas.", getRandomColor()),
-                new Correo ("admin@mailapp.com", "Bienvenidos a MailApp", "Si estas leyendo esto es que la aplicación está funcionando correctamente", getRandomColor()),
-                new Correo ("admin@mailapp.com", "Bienvenidos a MailApp", "Si estas leyendo esto es que la aplicación está funcionando correctamente", getRandomColor()),
-                new Correo ("admin@mailapp.com", "Bienvenidos a MailApp", "Si estas leyendo esto es que la aplicación está funcionando correctamente", getRandomColor()),
-                new Correo ("admin@mailapp.com", "Bienvenidos a MailApp", "Si estas leyendo esto es que la aplicación está funcionando correctamente", getRandomColor())
+                new Correo ("nicolas@mailapp.com", "Nicolas Corchero Montero en vivo!", "Has comprado una entrada para ver el concierto en vivo \"GRACIAS\", de Nicolas Corchero Montero el día 16 de Diciembre. Ponle música a la fe!", getRandomColor()),
+                new Correo ("mara@iesfernandoaguilar.com", "Aprobados en Acceso a datos", "La siguiente lista muestra todos los aprobados en el primer examen de AD, cualquier alumno que no aparezca significa que está suspenso:\n\n\n\n\n\nPuedes venir durante la tutoría para ver el examen y responder a dudas.", getRandomColor()),
+                new Correo ("info@linkedin.com", "¡Has aparecido en 7 búsquedas esta semana!", "Tu no serás acaso un influencer de las redes sociales o algo así, no?", getRandomColor()),
+                new Correo ("jefatura@iesfernandoaguilar.com", "VOTACIONES DE LOS PADRES Y MADRES CONSEJO ESCOLAR. PUEDEN DAR EL VOTO A SUS HIJOS/AS.", "Estimadas familias. El próximo martes 13 de Noviembre desde las 16.30h hasta las 21.30h podrán depositar su voto para elegir a los representantes deL SECTOR de padres y madres en el consejo Escolar. La Mesa estará disponible en el AMPA.\n\n\nTambién podrán hacer entrega del voto en dirección durante los cinco días anteriores al de la votación, incluso sus hijos/as pueden hacer entrega del voto mediante el sistema de doble sobre. ", getRandomColor()),
+                new Correo ("tecreamostuapp@gmail.com", "Creamos los fragments por ti", "Que ningún fragment te amargue el fin de semana!! Nosotros te lo hacemos por ti por solo 50€. Y por 20€ más te arreglamos todos los problemas que tengas con el Gradle.", getRandomColor()),
+                new Correo ("notmundotoday@trustme.com", "Todos los científicos del mundo, humillados al comprobar que se empiezan a notar ya los efectos de la homeopatía", "A pesar de la campaña de descrédito y deslegitimación promovida desde el ámbito de la ciencia, los hechos se han acabado imponiendo y finalmente, tras años de insistencia, los efectos curativos de la homeopatía se han empezado a notar de golpe en todos los rincones del mundo en los que se estaba aplicando esta denominada pseudociencia.", getRandomColor())
 
         );
     }
@@ -111,7 +111,7 @@ public class FragmentCorreo extends Fragment {
         );
     }
 
-    public interface OnNameSent {
+    public interface OnMailSent {
         void onChange (Correo correo);
     }
 
