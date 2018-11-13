@@ -22,8 +22,6 @@ public class CuerpoActivity extends AppCompatActivity implements FragmentConteni
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        ////TODO: Hacer que funcione el maldito fragment aquí...
-
         contenido = new FragmentContenido();
 
         FragmentManager fragmentManager = getSupportFragmentManager();
